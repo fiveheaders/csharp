@@ -1,0 +1,34 @@
+Toolbox anzeigen = ctrl + alt + x
+
+Bedingungsübungen
+
+Zahlenformate
+
+Double = Zahl, Komastellen sind erlaubt (1, 2.3,5.6,8 etc.)
+Int16= Zahl,  Kommastellen sind nicht erlaubt (1,2,3,4 etc.)
+
+Beispiel
+	double  Variabel1;
+            Int16 Variabel2;
+            Int16 Variabel3;
+            Int16 Variabel4;
+
+            Variabel1 = Convert.ToDouble(this.Feld1.Text);
+            Variabel2 = Convert.ToInt16(this.Feld2.Text);
+            Variabel3 = Convert.ToInt16(this.Feld3.Text);
+            Variabel4 = Convert.ToInt16(this.Feld4.Text);
+
+If, else if, else 
+
+if (Variabel == Variabel && Variabel == Variabel)
+            {
+                this.Textfeld.Text = "Ihr Ergebnis: " + Convert.ToDouble(Variabel * 5);
+            }
+            else if (Variabel - Variabel == Variabel - Variabel)
+            {
+                this.Textfeld.Text = "Ihr Ergebnis: " + Convert.ToDouble(Variabel * 3);
+            }
+            else
+            {
+                this.Textfeld.Text = "Leider nichts gewonnen";
+            }
