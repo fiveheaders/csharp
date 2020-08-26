@@ -1,0 +1,35 @@
+            if(double.TryParse(txtrate.Text, out leasingrate) == false)
+            {
+                txtrate.Text = "";
+                txtrate.BackColor = Color.Red;
+                txtrate.Focus();
+                lblresponse.Text = "Geben Sie bitte eine Zahl ein!";
+                return;
+            }
+            if (double.TryParse(txtprice.Text, out autopreis) == false)
+            {
+                txtprice.Text = "";
+                txtprice.BackColor = Color.Red;
+                txtprice.Focus();
+                lblresponse.Text = "Geben Sie bitte eine Zahl ein!";
+                return;
+            }
+
+            leasingkosten = (leasingrate / 100) * autopreis;
+
+            lblprice.Text = "Leasingkosten: " + Math.Round(leasingkosten) + " (auf Fr gerundet)";
+            
+            if(leasingkosten > 600)
+            {
+                lblresponse.Text = "Leider ist dieses Auto für Sie zu teuer.";
+            }
+            else
+            {
+                lblresponse.Text = "Sie haben ein günstiges Leasingangebot.";
+            }
+
+            for(double i = 0.5; i <= leasingrate;)
+            {
+                lbloverview.Text += i + " %: " + Math.Round((i / 100) * autopreis) + " Fr" + "\r\n";
+                i += 0.1;
+            }
