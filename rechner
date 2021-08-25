@@ -1,0 +1,66 @@
+            //0. Default-Werte setzen
+            txtOperator.BackColor = Color.White;
+            textBoxnr1.BackColor = Color.White;
+            textBoxnr2.BackColor = Color.White;
+
+            //1. Variablen deklarieren
+            decimal decZahl1 = 0;
+            decimal decZahl2 = 0;
+            string strOperator = "";
+            decimal decResult = 0;
+
+            //2. Den Variablen Werte zuweisen
+            strOperator = txtOperator.Text;
+
+            if (decimal.TryParse(textBoxnr1.Text, out decZahl1) == false)
+            {
+                lblResult.Text = "Geben Sie eine Zahl ein";
+                textBoxnr1.Text = "";
+                textBoxnr1.BackColor = Color.Red;
+                textBoxnr1.Focus();
+                return;
+            }
+            else if (decimal.TryParse(textBoxnr2.Text, out decZahl2) == false)
+            {
+                lblResult.Text = "Geben Sie eine Zahl ein";
+                textBoxnr2.Text = "";
+                textBoxnr2.BackColor = Color.Red;
+                textBoxnr2.Focus();
+                return;
+            }
+
+            
+            //3. Rechnen
+            //switch - Statement
+            switch (strOperator)
+            {
+                case "+":
+                    decResult = decZahl1 + decZahl2; 
+                    break;
+                case "-":
+                    decResult = decZahl1 - decZahl2;
+                    break;
+                case "*":
+                    decResult = decZahl1 * decZahl2;
+                    break;
+                case "/":
+                    decResult = decZahl1 / decZahl2;
+                    break;
+                case ":":
+                    decResult = decZahl1 / decZahl2;
+                    break;
+                default:
+                    lblResult.Text = "Bitte geben Sie ein korrektes Operationszeichen ein (+, -, *, /)";
+                    txtOperator.Text = "";
+                    txtOperator.BackColor = Color.Red;
+                    txtOperator.Focus();
+                    return;
+            }
+
+            //4. Ausgabe
+            lblResult.Text = "Das Ergebnis: " + textBoxnr1.Text + " " + txtOperator.Text + " " + textBoxnr2.Text + " = " + Convert.ToString(decResult);
+
+            //5. Defaultwerte setzen
+            textBoxnr1.Text = "";
+            textBoxnr2.Text = "";
+            txtOperator.Text = "";
